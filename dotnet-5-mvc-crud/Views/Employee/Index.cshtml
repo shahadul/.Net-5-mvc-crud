@@ -1,0 +1,41 @@
+@model List<dotnet_5_mvc_crud.Models.Employee>
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Create" asp-controller="Employee" class="btn btn-success">Create</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <td>Last Name</td>
+                    <td>Email</td>
+                    <td>Mobile</td>
+                    <td>Manage</td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FirstName</td>
+                    <td>@item.LastName</td>
+                    <td>@item.Email</td>
+                    <td>@item.Mobile</td>
+                    <td>
+                        <a asp-action="Edit" asp-controller="Employee" asp-route-id="@item.Id">
+                            Edit
+                        </a>
+                        <a asp-action="Delete" asp-controller="Employee" asp-route-id="@item.Id">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
